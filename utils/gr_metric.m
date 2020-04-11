@@ -5,7 +5,7 @@
 %           smf - Smooth Matching Factor that evaluates the shape consistency over the decomposition
 
 
-function [gr,smf,src] = gr_metric(lab_map)
+function [gr,src,smf] = gr_metric(lab_map)
 
 
 [h,w]  = size(lab_map);
@@ -22,7 +22,7 @@ for k=sp_ind
     %S_k current superpixel
     S_k      = lab_map == k;
     [yk,xk]  = find(S_k);
-    size_S_k = length(S_k);
+    size_S_k = length(yk);
     
     %Convex hull of S_k
     hull       = regionprops(S_k,'ConvexImage');
@@ -43,7 +43,6 @@ for k=sp_ind
     sigma_y = std(yk(:));
     vxy_k   = sqrt(min(sigma_x,sigma_y)/max(sigma_x,sigma_y)); 
     
-    
     %Shape Regularity Criteria (SRC)
     src_k = cr_k*vxy_k;
     src   = src + src_k*size_S_k;
@@ -60,8 +59,10 @@ src = src/(h*w);
 S_tab = zeros(2*h+1,2*w+1,sp_nbr);
 
 %Average of superpixel shapes
-c = 1;
+c = 0;
 for k=sp_ind
+    
+    c = c + 1;
     
     [yk,xk] = find(lab_map == k);
     
@@ -76,7 +77,7 @@ for k=sp_ind
         xk_r               = xk(l)+(w+1-mx);
         S_tab(yk_r,xk_r,c) = S_tab(yk_r,xk_r,c) + 1;
     end
-    c = c + 1;
+    
     
 end
 S = sum(S_tab,3)/sp_nbr;
@@ -84,15 +85,16 @@ S = S/sum(S(:));
 
 %Smooth Matching Factor (SMF)
 smf = 0;
-c = 1;
-for k=sp_ind
-    S_k      = S_tab(:,:,c);
+sum_smf = 0;
+for k=1:c
+    S_k      = S_tab(:,:,k);
     size_S_k = sum(S_k(:));
     S_k      = S_k/size_S_k;
-    smf      = smf + size_S_k*sum(sum(abs(S-S_k)));
-    c = c + 1;
+    smf_tmp = sum(sum(abs(S-S_k)))/2;
+    smf      = smf + size_S_k*smf_tmp;
+    sum_smf = sum_smf + size_S_k;
 end
-smf = 1 - smf/(2*(h*w));
+smf = 1 - smf/((sum_smf));
 
 
 
