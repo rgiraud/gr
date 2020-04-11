@@ -1,5 +1,8 @@
 ## GR: Global Regularity metric
 
+
+### Overview
+
 Implementation of paper:   [PDF](https://hal.archives-ouvertes.fr/hal-01519635/file/Giraud_JEI_GR.pdf)
 ```
 @article{giraud2017evaluation,
@@ -12,8 +15,6 @@ Implementation of paper:   [PDF](https://hal.archives-ouvertes.fr/hal-01519635/f
   year={2017}
 }
 ```
-
-### Overview
 
 - Global Regularity (GR) evaluating the convexity, smoothness and consistency of superpixel shapes within the segmentation 
 
