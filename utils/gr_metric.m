@@ -1,13 +1,3 @@
-% This code is free to use for any non-commercial purposes.
-% If you use this code, please cite:
-%   Rémi Giraud, Vinh-Thong Ta and Nicolas Papadakis
-%   Evaluation Framework of Superpixel Methods with a Global Regularity Measure
-%   Journal of Electronic Imaging (JEI),
-%   Special issue on Superpixels for Image Processing and Computer Vision, 2017
-%
-% (C) Rémi Giraud, 2017
-% rgiraud@u-bordeaux.fr, remigiraud.fr/research/gr.php
-% University of Bordeaux
 %
 % Input:    lab_map - Labeling decomposition map of a 2D image
 % Outputs:  gr - Global Regularity measure that evaluates the global regularity 
