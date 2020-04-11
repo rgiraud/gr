@@ -17,7 +17,7 @@ Implementation of paper:   [PDF](https://hal.archives-ouvertes.fr/hal-01519635/f
 
 - Global Regularity (GR) metric evaluating superpixel spatial convexity, smoothness and consistency of shapes within the segmentation 
 
-![image](./Figures/gr_example.png)
+![image](./Figures/gr_examples.png)
 
 
 ### Execution
