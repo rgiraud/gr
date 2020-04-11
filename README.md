@@ -15,9 +15,9 @@ Implementation of paper:   [PDF](https://hal.archives-ouvertes.fr/hal-01519635/f
 
 ### Overview
 
-- Source code for SCALP superpixels: 
+- Global Regularity (GR) metric evaluating superpixel spatial convexity, smoothness and consistency of shapes within the segmentation 
 
-![image](./Figures/scalp_method.png)
+![image](./Figures/gr_example.png)
 
 
 ### Execution
