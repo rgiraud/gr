@@ -21,10 +21,8 @@ Implementation of paper:   [PDF](https://hal.archives-ouvertes.fr/hal-01519635/f
 
 
 ### Execution
-
-#### MATLAB / C-Mex
 ```
-run main.m    %call SCALP_mex
+run main_gr_demo.m    
 ```
 
 
