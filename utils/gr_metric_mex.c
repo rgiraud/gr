@@ -46,7 +46,7 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     double gr = gr_metric(spx, spx_sizes, max_sp, nCols, nRows, &smf, &src);
     
     
-    int dims[1];
+    mwSize dims[1];
     dims[0] = 1;
     plhs[0] = mxCreateNumericArray(1, dims, mxSINGLE_CLASS, mxREAL);
     float *gr_ptr = (float*) mxGetPr(plhs[0]);
