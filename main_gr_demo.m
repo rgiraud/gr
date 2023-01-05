@@ -3,6 +3,8 @@ clear all
 close all
 clc
 
+addpath('utils');
+
 %Image loading
 img = imread('peppers.png');
 
